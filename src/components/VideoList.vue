@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -29,7 +31,7 @@ export default {
   methods: {
     async fetchVideos() {
       try {
-        const response = await fetch('https://rich-cyan-termite-hose.cyclic.app/api/retrieve');
+        const response = await axios.get('https://rich-cyan-termite-hose.cyclic.app/api/retrieve');
         const data = await response.json();
         this.videos = data.videoUrls;
         console.log(this.videos);
