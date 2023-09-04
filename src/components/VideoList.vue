@@ -27,7 +27,7 @@
     methods: {
       async fetchVideos() {
         try {
-          const response = await fetch('http://localhost:3000/api/retrieve');
+          const response = await fetch('https://rich-cyan-termite-hose.cyclic.app/api/retrieve');
           const data = await response.json();
           this.videos = data;
         } catch (error) {

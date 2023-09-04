@@ -27,7 +27,7 @@ export default {
       if (this.selectedFile) {
         const formData = new FormData();
         formData.append('video', this.selectedFile);
-        axios.post('http://localhost:3000/api/upload', formData, {
+        axios.post('https://rich-cyan-termite-hose.cyclic.app/api/upload', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
