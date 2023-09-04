@@ -5,13 +5,14 @@
     <div v-else>
       <ul>
         <li v-for="videoUrl in videos" :key="videoUrl">
-          <p>Video: <a :href="videoUrl" target="_blank">{{ getFileNameFromUrl(videoUrl) }}</a></p>
+          <p>Video: <a :href="videoUrl" target="_blank">{{ videoUrl }}</a></p>
         </li>
       </ul>
       <div v-if="videos.length === 0">No videos found.</div>
     </div>
   </div>
 </template>
+
 
 <script>
 import axios from 'axios';
@@ -30,17 +31,13 @@ export default {
     async fetchVideos() {
       try {
         const response = await axios.get('https://rich-cyan-termite-hose.cyclic.app/api/retrieve');
-        this.videos = response.data.videoUrls;
+        console.log(response.data); 
+        this.videos = response.data.videoUrls; 
       } catch (error) {
         console.error('Error fetching videos:', error);
       } finally {
         this.loading = false;
       }
-    },
-    getFileNameFromUrl(url) {
-      // Extract the filename from the URL (e.g., "1693840384074" from the original URL)
-      const parts = url.split('/');
-      return parts[parts.length - 1];
     },
   },
 };
