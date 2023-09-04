@@ -15,6 +15,7 @@
   </div>
 </template>
 
+
 <script>
 import axios from 'axios';
 
@@ -32,10 +33,8 @@ export default {
     async fetchVideos() {
       try {
         const response = await axios.get('https://rich-cyan-termite-hose.cyclic.app/api/retrieve');
-        console.log(response.json());
-        const data = await response.json();
-        this.videos = data.videoUrls;
-        
+        console.log(response.data); 
+        this.videos = response.data.videoUrls; 
       } catch (error) {
         console.error('Error fetching videos:', error);
       } finally {
