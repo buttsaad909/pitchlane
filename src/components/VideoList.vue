@@ -30,6 +30,7 @@
           const response = await fetch('https://rich-cyan-termite-hose.cyclic.app/api/retrieve');
           const data = await response.json();
           this.videos = data;
+          console.log(this.videos)
         } catch (error) {
           console.error('Error fetching videos:', error);
         } finally {
