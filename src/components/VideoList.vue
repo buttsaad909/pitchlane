@@ -4,8 +4,8 @@
     <div v-if="loading">Loading...</div>
     <div v-else>
       <ul>
-        <li v-for="(video, index) in videos" :key="index">
-          <a :href="video" target="_blank">{{ video }}</a>
+        <li v-for="videoUrl in videos" :key="videoUrl">
+          <a :href="videoUrl" target="_blank">{{ videoUrl }}</a>
         </li>
       </ul>
       <div v-if="videos.length === 0">No videos found.</div>
