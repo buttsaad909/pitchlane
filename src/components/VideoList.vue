@@ -5,14 +5,15 @@
     <div v-else>
       <ul>
         <li v-for="videoUrl in videos" :key="videoUrl">
-          <p>Video: <a :href="videoUrl" target="_blank">{{ videoUrl }}</a></p>
+          <p>Video: <a :href="videoUrl" target="_blank">{{ videoUrl }}</a>
+            <button @click="copyToClipboard(videoUrl)">Copy URL</button>
+          </p>
         </li>
       </ul>
       <div v-if="videos.length === 0">No videos found.</div>
     </div>
   </div>
 </template>
-
 
 <script>
 import axios from 'axios';
@@ -38,6 +39,16 @@ export default {
       } finally {
         this.loading = false;
       }
+    },
+    copyToClipboard(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      // You can optionally show a success message here
+      console.log('URL copied to clipboard:', text);
     },
   },
 };
