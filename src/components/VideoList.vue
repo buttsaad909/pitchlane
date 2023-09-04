@@ -31,6 +31,7 @@
           const data = await response.json();
           this.videos = data;
           console.log(this.videos)
+          console.log(data)
         } catch (error) {
           console.error('Error fetching videos:', error);
         } finally {
