@@ -6,7 +6,7 @@
       <ul>
         <li v-for="videoUrl in videos" :key="videoUrl">
           <p>Video: <a :href="videoUrl" target="_blank">{{ videoUrl }}</a>
-            <button @click="copyToClipboard(videoUrl)">Copy URL</button>
+            <button id="style" @click="copyToClipboard(videoUrl)">Copy URL</button>
           </p>
         </li>
       </ul>
@@ -53,3 +53,13 @@ export default {
   },
 };
 </script>
+
+<style>
+#style  {
+    background-color: red;
+}
+
+#style:focus {     
+    background-color:yellow;    
+}
+</style>
